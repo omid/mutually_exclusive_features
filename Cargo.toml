@@ -1,0 +1,18 @@
+[package]
+name = "mutually_exclusive_features"
+version = "0.0.1"
+description = "Macros to check that only none or one of a set of features is enabled at a time, as known as mutually exclusive features"
+license = "MIT OR Apache-2.0"
+authors = ["Omid Rad <omidmr@gmail.com>"]
+repository = "https://github.com/omid/mutually_exclusive_features"
+keywords = ["feature", "macro", "mutually_exclusive", "mutually", "exclusive"]
+categories = ["development-tools", "no-std", "rust-patterns"]
+edition = "2021"
+rust-version = "1.56.0"
+
+[features]
+a = []
+b = []
+
+[[example]]
+name = "main"
