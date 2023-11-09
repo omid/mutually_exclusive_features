@@ -22,9 +22,10 @@ jobs:
 
     - name: fail scenarios
       run: |
-        cargo run --example main 2>&1 | grep -q 'exactly one'
-        cargo run --example main --features "a","b" 2>&1 | grep -q 'mutually exclusive'
+        cd examples \
+        && cargo run 2>&1 | grep -q 'exactly one' \
+        && cargo run --features "a","b" 2>&1 | grep -q 'mutually exclusive'
 
     - name: pass scenarios
       run: |
-        cargo run --example main --features "a"
+        cd examples && cargo run --features "a"

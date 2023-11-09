@@ -9,10 +9,3 @@ keywords = ["feature", "macro", "mutually_exclusive", "mutually", "exclusive"]
 categories = ["development-tools", "no-std", "rust-patterns"]
 edition = "2021"
 rust-version = "1.56.0"
-
-[features]
-a = []
-b = []
-
-[[example]]
-name = "main"
