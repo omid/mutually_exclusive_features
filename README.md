@@ -1,12 +1,21 @@
-Some macros to check mutually exclusive conditions of features in Rust.
+# Macros to check mutually exclusive of `features` in Rust
+___
 
-The macros are `none_or_one_of` and `exactly_one_of`.
+It contains `none_or_one_of` and `exactly_one_of` macros.
 
 Both check mutually exclusive of features in Rust,
 but `none_or_one_of` allows for no features to be enabled,
 while `exactly_one_of` requires exactly one feature to be enabled.
 
-To use `none_or_one_of`, call it with the list of features you want to be mutually exclusive:
+## Usage
+
+---
+
+### none_or_one_of
+
+---
+
+Call it with the list of features you want to be mutually exclusive:
 ```rust
 use mutually_exclusive_features::none_or_one_of;
 none_or_one_of!("feature1", "feature2", "feature3");
@@ -24,8 +33,12 @@ compile_error!("The `feature1` and `feature3` features are mutually exclusive an
 compile_error!("The `feature2` and `feature3` features are mutually exclusive and cannot be enabled at the same time!");
 ```
 
-And `exactly_one_of`, is the same, but requires exactly one feature to be enabled:
-```
+### exactly_one_of
+
+---
+
+It's the same, but requires exactly one feature to be enabled:
+```rust
 use mutually_exclusive_features::exactly_one_of;
 exactly_one_of!("feature1", "feature2", "feature3");
 ```
