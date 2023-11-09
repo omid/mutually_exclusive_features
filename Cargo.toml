@@ -1,6 +1,6 @@
 [package]
 name = "mutually_exclusive_features"
-version = "0.0.1"
+version = "0.0.3"
 description = "Macros to check that only none or one of a set of features is enabled at a time, as known as mutually exclusive features"
 license = "MIT OR Apache-2.0"
 authors = ["Omid Rad <omidmr@gmail.com>"]

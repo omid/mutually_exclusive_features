@@ -29,7 +29,7 @@ compile_error!("The `feature2` and `feature3` features are mutually exclusive an
 macro_rules! none_or_one_of {
     // root call
     ($($F:literal),+ $(,)?) => {
-        none_or_one_of!(@recurs: [params: $($F,)*]);
+        $crate::none_or_one_of!(@recurs: [params: $($F,)*]);
     };
 
     // exactly two
@@ -46,8 +46,8 @@ macro_rules! none_or_one_of {
         @recurs:
         [params: $F1:literal, $($FS:literal,)+]
     ) => {
-        $(none_or_one_of!(@recurs: [params: $F1, $FS,]);)*
-        none_or_one_of!(@recurs: [params: $($FS,)*]);
+        $($crate::none_or_one_of!(@recurs: [params: $F1, $FS,]);)*
+        $crate::none_or_one_of!(@recurs: [params: $($FS,)*]);
     };
 
     // ignore cases
@@ -82,14 +82,14 @@ compile_error!("You must enable exactly one of `feature1`, `feature2`, `feature3
 #[macro_export]
 macro_rules! exactly_one_of {
     ($($F:literal),+ $(,)?) => {
-        none_or_one_of!(@recurs: [params: $($F,)*]);
+        $crate::none_or_one_of!(@recurs: [params: $($F,)*]);
 
         #[cfg(not(any($(feature=$F),*)))]
-        compile_error!(concat!("You must enable exactly one of ", exactly_one_of!(@comma_sep: $($F,)*), " features!"));
+        compile_error!(concat!("You must enable exactly one of ", $crate::exactly_one_of!(@comma_sep: $($F,)*), " features!"));
     };
 
     (@comma_sep: $last:literal $(,)?) => { concat!("`", $last, "`") };
     (@comma_sep: $head:literal, $($rest:literal),+ $(,)?) => {
-        concat!("`", $head, "`, ", exactly_one_of!(@comma_sep: $($rest),+))
+        concat!("`", $head, "`, ", $crate::exactly_one_of!(@comma_sep: $($rest),+))
     };
 }
