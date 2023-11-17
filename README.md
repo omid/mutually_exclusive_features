@@ -1,9 +1,9 @@
-# Macros to check mutually exclusive of `features` in Rust
+# Macros to check mutually exclusive `features` in Rust
 ___
 
 It contains `none_or_one_of` and `exactly_one_of` macros.
 
-Both check mutually exclusive of features in Rust,
+Both check mutually exclusive features in Rust,
 but `none_or_one_of` allows for no features to be enabled,
 while `exactly_one_of` requires exactly one feature to be enabled.
 
