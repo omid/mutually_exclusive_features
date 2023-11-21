@@ -1,4 +1,10 @@
-# Macros to check mutually exclusive `features` in Rust
+# Mutually Exclusive Features 
+
+[![crates.io](https://img.shields.io/crates/v/mutually_exclusive_features.svg)](https://crates.io/crates/mutually_exclusive_features)
+[![Build Status](https://github.com/omid/mutually_exclusive_features/actions/workflows/test.yml/badge.svg)](https://github.com/omid/mutually_exclusive_features/actions/workflows/test.yml)
+[![docs](https://docs.rs/mutually_exclusive_features/badge.svg)](https://docs.rs/mutually_exclusive_features)
+
+### Macros to check mutually exclusive `features` in Rust
 ___
 
 It contains `none_or_one_of` and `exactly_one_of` macros.
