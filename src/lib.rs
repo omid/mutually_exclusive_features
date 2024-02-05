@@ -51,8 +51,12 @@ macro_rules! none_or_one_of {
     };
 
     // ignore cases
-    () => {};
-    (@recurs: [params: $F1:literal,]) => {};
+    () => {
+        compile_error!("It doesn't make sense to call it with no feature! Probably you can safely remove it.")
+    };
+    (@recurs: [params: $F1:literal,]) => {
+        compile_error!("It doesn't make sense to call it with only one feature! Probably you can safely remove it.")
+    };
 }
 
 /**
